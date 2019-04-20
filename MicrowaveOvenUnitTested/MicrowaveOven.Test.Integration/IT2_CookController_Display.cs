@@ -49,11 +49,19 @@ namespace MicrowaveOven.Test.Integration
           
         }
         [TestCase(1, 100)]
-        public void CookController_StartWasCalled_ShowsCorrectPower(int pow, int time)
+        public void CookController_StartWasCalled_ShowsCorrectPower100w(int pow, int time)
         {
             _cookController.StartCooking(pow, time);
             Thread.Sleep(1100); 
             _uut.Received().ShowPower(100);
+
+        }
+        [Test]
+        public void CookController_StartWasCalled_ShowsClearedDisplay()
+        {
+            _cookController.Stop();
+            Thread.Sleep(1100);
+            _uut.Received().Clear();
 
         }
     }
