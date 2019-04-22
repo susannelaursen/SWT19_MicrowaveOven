@@ -10,25 +10,31 @@ using NUnit.Framework;
 
 namespace MicrowaveOven.Test.Integration
 {
-    //public class IT1_CookController_PowerTube
-    //{
-    //    private IDisplay iDisplay_;
-    //    private ITimer iTimer_;
-    //    private IUserInterface ui_;
-    //    private ICookController iCookController_();
-    //    private IPowerTube uut_;
+    public class IT1_CookController_PowerTube // Susanne
+    {
+        //private IDisplay iDisplay_;
+        //private ITimer iTimer_;
+        //private IUserInterface ui_;
+        //private ICookController iCookController_();
+        //private IPowerTube uut_;
 
-    //    [Setup]
-    //    public void SetUp()
-    //    {
-    //        iOutput_ = new Output();
-    //        iCookController_ = new CookController();
-    //        uut_ = new PowerTube();
-    //    }
+        //[Setup]
+        //public void SetUp()
+        //{
+        //    _uut = new PowerTube();
+        //    _display = Substitute.For<IDisplay>();
+        //    _powerTube = Substitute.For<IPowerTube>();
+        //    _ui = Substitute.For<IUserInterface>();
+        //    _cookController = new CookController(_uut, _display, _powerTube, _ui);
+        //}
 
-    //    public void TurnOn_True()
-    //    {
-
-    //    }
+        //[TestCase(15, 60)]
+        //[TestCase(15, 15)]
+        //public void CookController_StartWasCalled_PowerTubeWasTurnedOn()
+        //{
+        //    _cookController.StartCooking(time);
+        //    Thread.Sleep(1100); 
+            
+        //}
     }
-//}
+}
