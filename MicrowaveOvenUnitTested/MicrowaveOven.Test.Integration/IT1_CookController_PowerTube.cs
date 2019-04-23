@@ -15,16 +15,16 @@ namespace MicrowaveOven.Test.Integration
         private IDisplay iDisplay_;
         private ITimer iTimer_;
         private IUserInterface ui_;
-        private ICookController iCookController_();
+        //private ICookController iCookController_();
         private IPowerTube uut_;
 
-        [Setup]
-        public void SetUp()
-        {
-            iOutput_ = new Output();
-            iCookController_ = new CookController();
-            uut_ = new PowerTube();
-        }
+        //[Setup]
+        //public void SetUp()
+        //{
+        //    iOutput_ = new Output();
+        //    iCookController_ = new CookController();
+        //    uut_ = new PowerTube();
+        //}
 
         public void TurnOn_True()
         {
