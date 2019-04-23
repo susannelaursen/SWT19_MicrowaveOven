@@ -10,6 +10,7 @@ using MicrowaveOvenClasses;
 using MicrowaveOvenClasses.Controllers;
 using MicrowaveOvenClasses.Interfaces;
 using NSubstitute.Core;
+using NSubstitute.ReceivedExtensions;
 using Timer = MicrowaveOvenClasses.Boundary.Timer;
 
 namespace MicrowaveOven.Test.Integration
@@ -42,7 +43,15 @@ namespace MicrowaveOven.Test.Integration
             Thread.Sleep(1100); // Et sekund plus lidt mere
             _display.Received().ShowTime(0,time-1);
 
-            // Der blev fundet fejl. Den 
+            // Der blev fundet fejl. Programmet er opstillet som værende sekunder man indtaster men der fratrækkes som var det millisekunder.
+            // Fejl rettet i Timer OnTimerEvent linje 47-48.
+        }
+
+        [Test]
+        public void CookContoller_StopWaCalled_TimerWasStopped() // Tjek med underviser. Jeg vil gerne teste om _uut.Stop bliver kaldt. 
+        {
+            _cookController.Stop();
+            Assert.That(() => _uut.Stop(), Throws.Nothing);
         }
     }
 }

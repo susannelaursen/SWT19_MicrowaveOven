@@ -43,8 +43,7 @@ namespace MicrowaveOven.Test.Integration
         {
             _cookController.StartCooking(pow, time);
             Thread.Sleep(1100); 
-            _uut.Received().ShowTime(0, time - 1);
-
+            _output.Received().OutputLine("Display shows: 00:59");
 
           
         }
@@ -52,16 +51,16 @@ namespace MicrowaveOven.Test.Integration
         public void CookController_StartWasCalled_ShowsCorrectPower100w(int pow, int time)
         {
             _cookController.StartCooking(pow, time);
-            Thread.Sleep(1100); 
-            _uut.Received().ShowPower(100);
+            Thread.Sleep(1100);
+            _output.Received().OutputLine("Display shows: 100 W");
 
         }
         [Test]
-        public void CookController_StartWasCalled_ShowsClearedDisplay()
+        public void CookController_StartWasCalled_ShowsDisplayCleared()
         {
             _cookController.Stop();
             Thread.Sleep(1100);
-            _uut.Received().Clear();
+            _output.Received().OutputLine("Display cleared");
 
         }
     }

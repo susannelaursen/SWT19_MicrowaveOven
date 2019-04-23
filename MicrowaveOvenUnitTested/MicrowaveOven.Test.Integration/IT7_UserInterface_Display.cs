@@ -34,6 +34,12 @@ namespace MicrowaveOven.Test.Integration
             _uut = new Display(_output);
 
         }
-       // [TestCase()]
+
+        [Test]
+        public void UserInterface_DisplayTime()
+        {
+
+        }
+
     }
 }
