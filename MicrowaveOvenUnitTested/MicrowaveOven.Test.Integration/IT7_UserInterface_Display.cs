@@ -12,7 +12,7 @@ using NUnit.Framework;
 namespace MicrowaveOven.Test.Integration
 {
     [TestFixture]
-    class IT7_UserInterface_Display´//Ines
+    class IT7_UserInterface_Display //Ines
     {
         private IUserInterface _ui;
         private ICookController _cookController;
@@ -34,6 +34,6 @@ namespace MicrowaveOven.Test.Integration
             _uut = new Display(_output);
 
         }
-        [TestCase()]
+       // [TestCase()]
     }
 }
