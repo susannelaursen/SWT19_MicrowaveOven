@@ -5,8 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using MicrowaveOven;
-using System.Threading.Tasks;
-using NUnit.Framework;
 using NSubstitute;
 using MicrowaveOvenClasses;
 using MicrowaveOvenClasses.Controllers;

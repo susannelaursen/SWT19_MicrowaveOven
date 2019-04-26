@@ -1,20 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NUnit.Framework;
-using MicrowaveOven;
 using System.Threading;
-using System.Threading.Tasks;
-using NUnit.Framework;
 using NSubstitute;
-using MicrowaveOvenClasses;
 using MicrowaveOvenClasses.Controllers;
 using MicrowaveOvenClasses.Interfaces;
-using NSubstitute.Core;
-using NSubstitute.ReceivedExtensions;
-using Timer = MicrowaveOvenClasses.Boundary.Timer;
 
 namespace MicrowaveOven.Test.Integration
 {
@@ -65,6 +54,7 @@ namespace MicrowaveOven.Test.Integration
             Thread.Sleep(1100); // Et sekund plus lidt mere
 
             _timer.Received().Start(Arg.Any<int>());
+            
         }
 
         [Test]
