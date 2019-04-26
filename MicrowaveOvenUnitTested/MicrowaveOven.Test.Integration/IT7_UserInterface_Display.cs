@@ -12,7 +12,7 @@ namespace MicrowaveOven.Test.Integration
     class IT7_UserInterface_Display //Ines
     {
         private IUserInterface _ui;
-        //private ICookController _cookController;
+        
 
         private ITimer _timer;
         private IPowerTube _powertube;
@@ -49,44 +49,18 @@ namespace MicrowaveOven.Test.Integration
         }
 
         [Test]
-        public void UserInterface_DisplayTime_WasPowerPressed()
+        public void UserInterface_Display_WasPowerPressed()
         {
             _door.Opened += Raise.EventWith(this, EventArgs.Empty);
             _door.Closed += Raise.EventWith(this, EventArgs.Empty);
-
-            _power.Pressed += Raise.EventWith(this, EventArgs.Empty);
-              
-            //_time.Pressed += Raise.EventWith(this, EventArgs.Empty);
-            //_time.Pressed += Raise.EventWith(this, EventArgs.Empty);
-            //_start.Pressed += Raise.EventWith(this, EventArgs.Empty);
-
-            Thread.Sleep(1100); // Et sekund plus lidt mere
-
-            _power.Received().Press();
-            
-        }
-
-        [Test]
-        public void UserInterface_DisplayTime_WasTimePressed()
-        {
-            _door.Opened += Raise.EventWith(this, EventArgs.Empty);
-            _door.Closed += Raise.EventWith(this, EventArgs.Empty);
-
             _power.Pressed += Raise.EventWith(this, EventArgs.Empty);
 
-            _time.Pressed += Raise.EventWith(this, EventArgs.Empty);
-            _time.Pressed += Raise.EventWith(this, EventArgs.Empty);
-            //_start.Pressed += Raise.EventWith(this, EventArgs.Empty);
-
-            Thread.Sleep(1100); // Et sekund plus lidt mere
-
-            _timer.Received().Start(Arg.Any<int>());
-            
+            _output.Received().OutputLine("Display shows: 50 W");
 
         }
 
         [Test]
-        public void UserInterface_DisplayTime_WasStartCancelPressed()
+        public void UserInterface_Display_WasTimePressed()
         {
             _door.Opened += Raise.EventWith(this, EventArgs.Empty);
             _door.Closed += Raise.EventWith(this, EventArgs.Empty);
@@ -94,14 +68,40 @@ namespace MicrowaveOven.Test.Integration
             _power.Pressed += Raise.EventWith(this, EventArgs.Empty);
 
             _time.Pressed += Raise.EventWith(this, EventArgs.Empty);
+           
+            //_start.Pressed += Raise.EventWith(this, EventArgs.Empty);
+
+            _output.Received().OutputLine("Display shows: 01:00");
+
+
+        }
+
+        [Test]
+        public void UserInterface_Display_TimeWasPressedTwice()
+        {
+            _door.Opened += Raise.EventWith(this, EventArgs.Empty);
+            _door.Closed += Raise.EventWith(this, EventArgs.Empty);
+
+            _power.Pressed += Raise.EventWith(this, EventArgs.Empty);
+
+            _time.Pressed += Raise.EventWith(this, EventArgs.Empty);
+            _time.Pressed += Raise.EventWith(this, EventArgs.Empty);
+
+            _output.Received().OutputLine("Display shows: 02:00");
+
+        }
+        [Test]
+        public void UserInterface_Display_WasStartCancelPressed()
+        {
+            _door.Opened += Raise.EventWith(this, EventArgs.Empty);
+            _door.Closed += Raise.EventWith(this, EventArgs.Empty);
+
+            _power.Pressed += Raise.EventWith(this, EventArgs.Empty);
+
             _time.Pressed += Raise.EventWith(this, EventArgs.Empty);
             _start.Pressed += Raise.EventWith(this, EventArgs.Empty);
 
-            Thread.Sleep(1100); // Et sekund plus lidt mere
-
-            _start.Received().Press();
-
-
+            _output.Received().OutputLine("Display shows: 01:00");
 
         }
 
