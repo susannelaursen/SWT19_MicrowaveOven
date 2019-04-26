@@ -44,6 +44,7 @@ namespace MicrowaveOven.Test.Integration
             _start = Substitute.For<IButton>();
             _door = Substitute.For<IDoor>();
             _iTimer = Substitute.For<ITimer>();
+            _iPowerTube = Substitute.For<IPowerTube>();
             _iCookController = new CookController(_iTimer, _iDisplay, _iPowerTube);
 
             _ui = new UserInterface(_power, _time, _start, _door, _iDisplay, _uut, _iCookController);
@@ -76,7 +77,28 @@ namespace MicrowaveOven.Test.Integration
             _time.Pressed += Raise.EventWith(this, EventArgs.Empty);
             //State set time
             _start.Pressed += Raise.EventWith(this, EventArgs.Empty);
-            _iOutput.Received().OutputLine("Display shows: 00:01");
+            _iOutput.Received().OutputLine("Light is turned on");
+        }
+        [Test]
+        public void StateCooking_CookingIsDone_TurnOff()
+        {
+            //state ready
+            _door.Opened += Raise.EventWith(this, EventArgs.Empty);
+            _door.Closed += Raise.EventWith(this, EventArgs.Empty);
+            //Steate opend closed --> ready
+            _power.Pressed += Raise.EventWith(this, EventArgs.Empty);
+            //set power 
+            _time.Pressed += Raise.EventWith(this, EventArgs.Empty);
+            //State set time
+            _start.Pressed += Raise.EventWith(this, EventArgs.Empty);
+            _ui.CookingIsDone();
+            _iOutput.Received().OutputLine("Light is turned off");
+        }
+        [Test]
+        public void CookContoller_StopWaCalled_TimerWasStopped() 
+        {
+            _uut.TurnOff();
+            Assert.That(() => _uut.TurnOff(), Throws.Nothing);
         }
     }
 }
