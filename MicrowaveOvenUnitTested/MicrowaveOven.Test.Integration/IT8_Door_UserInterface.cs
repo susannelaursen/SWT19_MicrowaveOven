@@ -1,18 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using MicrowaveOvenClasses.Boundary;
-using MicrowaveOvenClasses.Controllers;
-using MicrowaveOvenClasses.Interfaces;
-using NUnit.Framework;
-using NSubstitute;
-using MicrowaveOvenClasses;
-using NSubstitute.Core;
-using NUnit;
-using System.Threading;
 
 namespace MicrowaveOven.Test.Integration
 {
