@@ -15,6 +15,7 @@ namespace MicrowaveOven.Test.Integration
         private IDisplay _display;
         private IPowerTube _powerTube;
         private IUserInterface _ui;
+        private IOutput _output;
 
         [SetUp]
         public void SetUp()
@@ -24,6 +25,7 @@ namespace MicrowaveOven.Test.Integration
             _display = Substitute.For<IDisplay>();
             _powerTube = Substitute.For<IPowerTube>();
             _ui = Substitute.For<IUserInterface>();
+            _output = Substitute.For<IOutput>();
             _cookController = new CookController(_uut,_display,_powerTube,_ui);
         }
 

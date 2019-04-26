@@ -58,7 +58,7 @@ namespace MicrowaveOven.Test.Integration
         }
 
         [Test]
-        public void CookController_StopWasCalled()
+        public void CookController_DoorWasOpened_StopWasCalled()
         {
             _door.Opened += Raise.EventWith(this, EventArgs.Empty);
             _door.Closed += Raise.EventWith(this, EventArgs.Empty);
@@ -69,6 +69,22 @@ namespace MicrowaveOven.Test.Integration
             _start.Pressed += Raise.EventWith(this, EventArgs.Empty);
 
             _door.Opened += Raise.EventWith(this, EventArgs.Empty);
+
+            _timer.Received().Stop();
+        }
+
+        [Test]
+        public void CookController_CancelWasPushed_StopWasCalled()
+        {
+            _door.Opened += Raise.EventWith(this, EventArgs.Empty);
+            _door.Closed += Raise.EventWith(this, EventArgs.Empty);
+
+            _power.Pressed += Raise.EventWith(this, EventArgs.Empty);
+            _time.Pressed += Raise.EventWith(this, EventArgs.Empty);
+            _time.Pressed += Raise.EventWith(this, EventArgs.Empty);
+            _start.Pressed += Raise.EventWith(this, EventArgs.Empty);
+
+            _start.Pressed += Raise.EventWith(this, EventArgs.Empty);
 
             _timer.Received().Stop();
         }
