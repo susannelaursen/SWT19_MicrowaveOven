@@ -1,11 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
+using MicrowaveOvenClasses.Boundary;
+using MicrowaveOvenClasses.Controllers;
+using MicrowaveOvenClasses.Interfaces;
+using NSubstitute;
+using NUnit.Framework;
 
 namespace MicrowaveOven.Test.Integration
 {
+
     class IT9_Button_UserInterface //Ines
     {
     }
