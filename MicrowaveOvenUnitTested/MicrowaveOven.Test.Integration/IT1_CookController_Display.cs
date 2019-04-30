@@ -23,7 +23,8 @@ namespace MicrowaveOven.Test.Integration
         {  
             _output = Substitute.For<Output>();
             _timer = Substitute.For<ITimer>();
-            _powerTube = Substitute.For<IPowerTube>();
+            //_powerTube = Substitute.For<IPowerTube>();
+            _powerTube = new PowerTube(_output);
             _ui = Substitute.For<IUserInterface>();
             _cookController = new CookController(_timer, _uut, _powerTube, _ui);
 
@@ -41,14 +42,16 @@ namespace MicrowaveOven.Test.Integration
 
           
         }
-        [TestCase(1, 100)]
-        public void CookController_StartWasCalled_ShowsCorrectPower100w(int pow, int time)
-        {
-            _cookController.StartCooking(pow, time);
-            Thread.Sleep(1100);
-            _output.Received().OutputLine("Display shows: 100 W");
 
-        }
+        //[TestCase(-2,1)]
+        //[TestCase(150, 1)]
+        //public void CookController_StartWasCalled_ShowsCorrectPower100w(int pow, int time)
+        //{
+        //    _cookController.StartCooking(pow, time);
+        //    // Thread.Sleep(1100);
+        //    _output.Received().OutputLine("Display shows: "+ pow+ " W");
+
+        //}
         [Test]
         public void CookController_StartWasCalled_ShowsDisplayCleared()
         {

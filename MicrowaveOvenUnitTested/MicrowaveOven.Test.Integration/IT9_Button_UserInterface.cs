@@ -57,6 +57,24 @@ namespace MicrowaveOven.Test.Integration
             _output.Received().OutputLine("Display shows: 50 W");
 
         }
+
+        [Test]
+        public void UserInterface_Button_WasPowerPressedTwice()
+        {
+            _uut_power.Press();
+            _uut_power.Press();
+            _output.Received().OutputLine("Display shows: 100 W");
+        }
+
+        [Test]
+        public void UserInterface_Button_WasPowerPressedThrice()
+        {
+            _uut_power.Press();
+            _uut_power.Press();
+            _uut_power.Press();
+            _output.Received().OutputLine("Display shows: 150 W");
+        }
+
         [Test]
         public void UserInterface_Button_WasPowerPressed_15times()
         {
@@ -94,5 +112,14 @@ namespace MicrowaveOven.Test.Integration
 
         }
 
+        [Test]
+        public void UserInterface_Button_WasStartCancelPressed()
+        {
+            _uut_power.Press();
+            _uut_time.Press();
+            _uut_start.Press();
+            _output.Received().OutputLine("Display shows: 01:00");
+
+        }
     }
 }
