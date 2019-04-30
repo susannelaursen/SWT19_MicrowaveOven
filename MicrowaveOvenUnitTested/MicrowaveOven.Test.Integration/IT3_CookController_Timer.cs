@@ -1,4 +1,5 @@
 ﻿using System.Threading;
+using MicrowaveOvenClasses.Boundary;
 using NUnit.Framework;
 using NSubstitute;
 using MicrowaveOvenClasses.Controllers;
@@ -21,11 +22,12 @@ namespace MicrowaveOven.Test.Integration
         public void SetUp()
         {
             _uut = new Timer();
-
-            _display = Substitute.For<IDisplay>();
-            _powerTube = Substitute.For<IPowerTube>();
+    
+            _powerTube = new PowerTube(_output);
             _ui = Substitute.For<IUserInterface>();
             _output = Substitute.For<IOutput>();
+            _display = Substitute.For<IDisplay>();
+            _powerTube = new PowerTube(_output);
             _cookController = new CookController(_uut,_display,_powerTube,_ui);
         }
 
@@ -46,6 +48,14 @@ namespace MicrowaveOven.Test.Integration
         {
             _cookController.Stop();
             Assert.That(() => _uut.Stop(), Throws.Nothing);
+        }
+
+        [TestCase(10, 2)]
+        public void CookController_TimerExpired_TimerWasStopped(int power, int time)
+        {
+            _cookController.StartCooking(power,time);
+            Thread.Sleep(4000); // Et sekund plus lidt mere
+            _output.Received().OutputLine("PowerTube turned off");
         }
     }
 }

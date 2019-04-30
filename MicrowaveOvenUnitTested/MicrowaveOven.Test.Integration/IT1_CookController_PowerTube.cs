@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using MicrowaveOvenClasses;
 using NSubstitute.Core;
 using NUnit;
 using System.Threading;
+using NSubstitute.ExceptionExtensions;
 
 
 namespace MicrowaveOven.Test.Integration
@@ -64,6 +66,23 @@ namespace MicrowaveOven.Test.Integration
             _iCookController.Stop();
             _iOutput.Received().OutputLine("PowerTube turned off");
         }
+
+        //Tester metoden stop som bruges når døren åbnes eller der trykkes på stop-knappen
+        //[TestCase(-2, 1)]
+        //[TestCase(150, 1)]
+        //public void CookController_UnacceptablePowerValues_PowerTubeWasTurnedOff(int power, int time)
+        //{
+        //    try
+        //    {
+        //        _iCookController.StartCooking(power, time);
+        //    }
+        //    catch (ArgumentOutOfRangeException e)
+        //    {
+        //        Console.WriteLine(e);
+        //        throw;
+        //    }
+
+        //}
     }
     
 }

@@ -66,6 +66,7 @@
     <Compile Include="IT7_UserInterface_Display.cs" />
     <Compile Include="IT8_Door_UserInterface.cs" />
     <Compile Include="IT9_Button_UserInterface.cs" />
+    <Compile Include="IT_FullIntegrationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

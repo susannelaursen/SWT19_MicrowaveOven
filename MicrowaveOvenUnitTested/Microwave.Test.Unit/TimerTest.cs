@@ -1,4 +1,5 @@
 ﻿using System.Threading;
+using NSubstitute;
 using NUnit.Framework;
 using Timer = MicrowaveOvenClasses.Boundary.Timer;
 
@@ -89,5 +90,24 @@ namespace Microwave.Test.Unit
             Assert.That(notifications, Is.EqualTo(2));
         }
 
+        [TestCase(10)]
+        [TestCase(60)]
+        public void Start_CorrectTimeSaved(int time)
+        {
+            uut.Start(time);
+            Assert.That(uut.TimeRemaining, Is.EqualTo(time));
+        }
+
+        [TestCase(10)]
+        [TestCase(60)]
+        public void Start_TimerTick_CorrectTimeRemaining(int time)
+        {
+            ManualResetEvent pause = new ManualResetEvent(false);
+
+            uut.Start(time);
+            pause.WaitOne(1100);
+ 
+            Assert.That(uut.TimeRemaining, Is.EqualTo(time-1));
+        }
     }
 }

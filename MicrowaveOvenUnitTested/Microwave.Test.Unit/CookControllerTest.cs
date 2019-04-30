@@ -2,6 +2,7 @@
 using MicrowaveOvenClasses.Controllers;
 using MicrowaveOvenClasses.Interfaces;
 using NSubstitute;
+using NSubstitute.ExceptionExtensions;
 using NUnit.Framework;
 
 namespace Microwave.Test.Unit
@@ -42,6 +43,13 @@ namespace Microwave.Test.Unit
 
             powerTube.Received().TurnOn(50);
         }
+
+        //[Test]
+        //public void StartCooking_InvalidParameters_ExceptionThrown()
+        //{
+        //    uut.StartCooking(150, 1);
+        //    powerTube.Throws(this, ArgumentOutOfRangeException e);
+        //}
 
         [Test]
         public void Cooking_TimerTick_DisplayCalled()
