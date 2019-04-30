@@ -97,11 +97,13 @@ namespace MicrowaveOven.Test.Integration
             _door.Closed += Raise.EventWith(this, EventArgs.Empty);
 
             _power.Pressed += Raise.EventWith(this, EventArgs.Empty);
+            _output.Received().OutputLine("Display shows: 50 W");
 
             _time.Pressed += Raise.EventWith(this, EventArgs.Empty);
-            _start.Pressed += Raise.EventWith(this, EventArgs.Empty);
-
             _output.Received().OutputLine("Display shows: 01:00");
+
+            _start.Pressed += Raise.EventWith(this, EventArgs.Empty);
+           
 
         }
         [Test]
@@ -111,12 +113,14 @@ namespace MicrowaveOven.Test.Integration
             _door.Closed += Raise.EventWith(this, EventArgs.Empty);
 
             _power.Pressed += Raise.EventWith(this, EventArgs.Empty);
+           
 
             _time.Pressed += Raise.EventWith(this, EventArgs.Empty);
             _start.Pressed += Raise.EventWith(this, EventArgs.Empty);
             _start.Pressed += Raise.EventWith(this, EventArgs.Empty);
+            _output.Received().OutputLine("Display cleared");
 
-            _output.Received().OutputLine("nej");
+            
 
         }
 
