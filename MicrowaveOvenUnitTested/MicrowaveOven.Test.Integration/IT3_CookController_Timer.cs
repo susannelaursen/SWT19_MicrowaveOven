@@ -23,7 +23,6 @@ namespace MicrowaveOven.Test.Integration
         {
             _uut = new Timer();
     
-            _powerTube = new PowerTube(_output);
             _ui = Substitute.For<IUserInterface>();
             _output = Substitute.For<IOutput>();
             _display = Substitute.For<IDisplay>();
