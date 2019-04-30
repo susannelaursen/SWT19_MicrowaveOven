@@ -18,7 +18,7 @@ using System.Threading;
 namespace MicrowaveOven.Test.Integration
 {
     [TestFixture]
-    class IT1_CookController_PowerTube
+    class IT2_CookController_PowerTube
     {
         private IPowerTube _uut;
         private IOutput _iOutput;

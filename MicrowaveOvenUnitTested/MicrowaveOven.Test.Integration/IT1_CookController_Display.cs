@@ -8,7 +8,7 @@ using NUnit.Framework;
 namespace MicrowaveOven.Test.Integration
 {
     [TestFixture]
-    class IT2_CookController_Display //Ines
+    class IT1_CookController_Display //Ines
     {
         private ICookController _cookController;
         private IOutput _output;

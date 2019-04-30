@@ -116,7 +116,7 @@ namespace MicrowaveOven.Test.Integration
             _start.Pressed += Raise.EventWith(this, EventArgs.Empty);
             _start.Pressed += Raise.EventWith(this, EventArgs.Empty);
 
-            _output.Received().OutputLine("Display shows: 01:00");
+            _output.Received().OutputLine("nej");
 
         }
 
