@@ -66,23 +66,6 @@ namespace MicrowaveOven.Test.Integration
             _iCookController.Stop();
             _iOutput.Received().OutputLine("PowerTube turned off");
         }
-
-        //Tester metoden stop som bruges når døren åbnes eller der trykkes på stop-knappen
-        //[TestCase(-2, 1)]
-        //[TestCase(150, 1)]
-        //public void CookController_UnacceptablePowerValues_PowerTubeWasTurnedOff(int power, int time)
-        //{
-        //    try
-        //    {
-        //        _iCookController.StartCooking(power, time);
-        //    }
-        //    catch (ArgumentOutOfRangeException e)
-        //    {
-        //        Console.WriteLine(e);
-        //        throw;
-        //    }
-
-        //}
     }
     
 }

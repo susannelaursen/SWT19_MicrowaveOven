@@ -43,15 +43,6 @@ namespace MicrowaveOven.Test.Integration
           
         }
 
-        //[TestCase(-2,1)]
-        //[TestCase(150, 1)]
-        //public void CookController_StartWasCalled_ShowsCorrectPower100w(int pow, int time)
-        //{
-        //    _cookController.StartCooking(pow, time);
-        //    // Thread.Sleep(1100);
-        //    _output.Received().OutputLine("Display shows: "+ pow+ " W");
-
-        //}
         [Test]
         public void CookController_StartWasCalled_ShowsDisplayCleared()
         {
