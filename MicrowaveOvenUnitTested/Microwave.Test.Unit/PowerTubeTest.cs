@@ -66,5 +66,6 @@ namespace Microwave.Test.Unit
             Assert.Throws<System.ArgumentOutOfRangeException>(() => uut.TurnOn(0));
         }
 
+
     }
 }

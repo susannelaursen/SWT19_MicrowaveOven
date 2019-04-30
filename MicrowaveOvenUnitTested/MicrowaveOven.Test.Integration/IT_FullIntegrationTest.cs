@@ -45,7 +45,32 @@ namespace MicrowaveOven.Test.Integration
         }
 
         [Test]
-        public void StartCooking_FullTest()
+        public void StartCooking_FullTest_300W_2Minutes()
+        {
+            _door.Open();
+            _door.Close();
+
+            _powerButton.Press();
+            _powerButton.Press();
+            _powerButton.Press();
+            _powerButton.Press();
+            _powerButton.Press();
+            _powerButton.Press();
+
+            // Display shows: 300 W
+
+            _timeButton.Press();
+            _timeButton.Press();
+
+            // Time shows 02:00
+
+            _startButton.Press();
+
+            _output.ReceivedCalls().Any();
+        }
+
+        [Test]
+        public void StartCooking_FullTest_150W_1Minute()
         {
             _door.Open();
             _door.Close();
@@ -57,13 +82,12 @@ namespace MicrowaveOven.Test.Integration
             // Display shows: 150 W
 
             _timeButton.Press();
-            _timeButton.Press();
 
-            // Time shows 02:00
+            // Time shows 01:00
 
             _startButton.Press();
 
-            _output.ReceivedCalls();
+            _output.ReceivedCalls().Any();
         }
     }
 }
