@@ -66,6 +66,20 @@ namespace Microwave.Test.Unit
             Assert.Throws<System.ArgumentOutOfRangeException>(() => uut.TurnOn(0));
         }
 
+        [Test]
+        public void TurnOn_50W_CorrectOutputInPercentage()
+        {
+            uut.TurnOn(50);
+            output.Received().OutputLine(Arg.Is<string>(str => str.Contains("7 %")));
+        }
+
+        [TestCase(1000)]
+        [TestCase(-2)]
+        public void TurnOn_InvalidValue_ThrowsException(int power)
+        {
+            Assert.Throws<System.ArgumentOutOfRangeException>(() => uut.TurnOn(power));
+        }
+   
 
     }
 }
