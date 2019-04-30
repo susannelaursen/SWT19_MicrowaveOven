@@ -104,6 +104,21 @@ namespace MicrowaveOven.Test.Integration
             _output.Received().OutputLine("Display shows: 01:00");
 
         }
+        [Test]
+        public void UserInterface_Display_WasCancelPressed()
+        {
+            _door.Opened += Raise.EventWith(this, EventArgs.Empty);
+            _door.Closed += Raise.EventWith(this, EventArgs.Empty);
+
+            _power.Pressed += Raise.EventWith(this, EventArgs.Empty);
+
+            _time.Pressed += Raise.EventWith(this, EventArgs.Empty);
+            _start.Pressed += Raise.EventWith(this, EventArgs.Empty);
+            _start.Pressed += Raise.EventWith(this, EventArgs.Empty);
+
+            _output.Received().OutputLine("Display shows: 01:00");
+
+        }
 
 
     }

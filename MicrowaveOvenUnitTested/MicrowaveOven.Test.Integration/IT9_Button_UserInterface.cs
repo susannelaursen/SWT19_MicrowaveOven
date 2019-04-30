@@ -63,14 +63,6 @@ namespace MicrowaveOven.Test.Integration
             _output.Received().OutputLine("Display shows: 01:00");
 
         }
-        [Test]
-        public void UserInterface_Button_WasStartCancelPressed()
-        {
-            _uut_power.Press();
-            _uut_time.Press();
-            _uut_start.Press();
-            _output.Received().OutputLine("Display shows: 01:00");
 
-        }
     }
 }
