@@ -57,8 +57,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IT1_CookController_PowerTube.cs" />
-    <Compile Include="IT2_CookController_Display.cs" />
+    <Compile Include="IT2_CookController_PowerTube.cs" />
+    <Compile Include="IT1_CookController_Display.cs" />
     <Compile Include="IT3_CookController_Timer.cs" />
     <Compile Include="IT4_UserInterface_CookController.cs" />
     <Compile Include="IT5_UserInterface_Light.cs" />
@@ -66,6 +66,7 @@
     <Compile Include="IT7_UserInterface_Display.cs" />
     <Compile Include="IT8_Door_UserInterface.cs" />
     <Compile Include="IT9_Button_UserInterface.cs" />
+    <Compile Include="IT_FullIntegrationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

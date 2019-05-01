@@ -8,7 +8,7 @@ using NUnit.Framework;
 namespace MicrowaveOven.Test.Integration
 {
     [TestFixture]
-    class IT2_CookController_Display //Ines
+    class IT1_CookController_Display //Ines
     {
         private ICookController _cookController;
         private IOutput _output;
@@ -41,14 +41,7 @@ namespace MicrowaveOven.Test.Integration
 
           
         }
-        [TestCase(1, 100)]
-        public void CookController_StartWasCalled_ShowsCorrectPower100w(int pow, int time)
-        {
-            _cookController.StartCooking(pow, time);
-            Thread.Sleep(1100);
-            _output.Received().OutputLine("Display shows: 100 W");
 
-        }
         [Test]
         public void CookController_StartWasCalled_ShowsDisplayCleared()
         {
